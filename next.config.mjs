@@ -5,15 +5,15 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-    images: {
+  images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "**",
+        protocol: 'https',
+        hostname: '**',
       },
       {
-        protocol: "http",
-        hostname: "**",
+        protocol: 'http',
+        hostname: '**',
       },
     ],
   },
