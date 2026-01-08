@@ -15,8 +15,15 @@ import { useIsMobile } from '@/hooks/use-mobile'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { slugify } from 'payload/shared'
+import { Dataset, Product } from '@/payload-types'
 
-export default function NavbarContent({ products }: { products: any[] }) {
+export default function NavbarContent({
+  products,
+  datasets,
+}: {
+  products: Product[]
+  datasets: Dataset[]
+}) {
   const isMobile = useIsMobile()
   const pathname = usePathname()
   const [isFixed, setIsFixed] = useState(false)
@@ -38,14 +45,10 @@ export default function NavbarContent({ products }: { products: any[] }) {
     },
     {
       name: 'Datasets',
-      child: [
-        { name: 'Signal ECG Dataset', link: '/datasets/signal-ecg-dataset' },
-        { name: 'Pre Cancer Dataset', link: '/datasets/pre-cancer-dataset' },
-        {
-          name: 'Infant/Fetal Dataset',
-          link: '/datasets/infant-fetal-dataset',
-        },
-      ],
+      child: datasets.map((p) => ({
+        name: p.title,
+        link: `/products/${slugify(p.title)}`,
+      })),
     },
     {
       name: 'Publication',
