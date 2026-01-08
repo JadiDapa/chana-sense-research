@@ -29,7 +29,7 @@ async function getDatasetContents() {
   return {
     title: 'Datasets',
     description:
-      'Explore a curated collection of medical imaging and signal datasets designed to support research in medical interpretation and analysis.',
+      'Explore a curated collection of Channa Sense datasets designed to support research in freshwater fish interpretation and cultivation.',
     datasets: [],
     button: {
       text: 'Explore more datasets',

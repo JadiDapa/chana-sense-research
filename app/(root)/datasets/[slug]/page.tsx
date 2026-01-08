@@ -2,7 +2,6 @@ import config from '@/payload.config'
 import { getPayload } from 'payload'
 import LeftHeader from '@/components/root/LeftHeader'
 import DatasetCarousel from '@/components/root/datasets/DatasetCarousel'
-import DatasetDescription from '@/components/root/datasets/DatasetDescription'
 import PreviewLink from '@/components/root/datasets/PreviewLink'
 
 export default async function DatasetDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -26,13 +25,13 @@ export default async function DatasetDetailPage({ params }: { params: Promise<{ 
       <div className="px-44 py-24">
         <DatasetCarousel items={dataset.dataset} />
       </div>
-      <DatasetDescription
-        description="The Research Resource for Echocardiography"
-        origin="RSUP Dr. Mohammad Hoesin Palembang"
-        type="Image"
-        records="300"
-        license="Copyright ISysRG"
-      />
+      {/* <DatasetDescription
+        description={dataset.description}
+        origin={dataset.origin}
+        type={dataset.type}
+        records={dataset.records}
+        license={dataset.license}
+      /> */}
       <PreviewLink url="https://isysrg.com/datasets/infant-fetal-dataset" />
     </>
   )

@@ -83,8 +83,7 @@ export default async function AboutSection() {
 async function getAboutContent() {
   return {
     title: 'About Us',
-    image_1:
-      'https://isysrg.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Frpp4jatp%2Fproduction%2Facf175eacda29173c113713e0b4a511f2cfba7b7-1024x1024.jpg&w=1920&q=75',
+    image_1: '/images/about-1.png',
     description_1:
       'Channa Sense Research is a leading center of excellence initiated by Sriwijaya State Polytechnic, Indonesia. The center is dedicated to monitoring and controlling the Channa Sense environment for snakehead fish spawning in South Sumatra through interdisciplinary research collaboration and innovation.',
     description_2:
@@ -95,7 +94,7 @@ async function getAboutContent() {
       'The Chana Sense Research Center of Excellence supports SDG 14 in marine ecosystems and develops AI-based solutions for the cultivation of Channa Sense and Channa Striata snakehead fish.',
     sdg_text_2:
       'Furthermore, the center contributes to SDG 9 (Industry, Innovation, and Infrastructure) by driving technological innovation through intelligent systems research, promoting sustainable freshwater fish farming infrastructure, and collaborating with industry to accelerate the adoption of cutting-edge technologies.',
-    sdg_image_1: '/images/about-1.jpeg',
+    sdg_image_1: '/images/about-2.jpeg',
     sdg_image_2: 'https://isysrg.com/_next/image?url=%2Fassets%2Fimages%2FE_WEB_09.png&w=640&q=75',
   }
 }

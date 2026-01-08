@@ -45,11 +45,15 @@ export default function NavbarContent({
     },
     {
       name: 'Datasets',
-      child: datasets.map((p) => ({
-        name: p.title,
-        link: `/products/${slugify(p.title)}`,
-      })),
+      child: [
+        ...datasets.map((p) => ({
+          name: p.title,
+          link: `/datasets/${slugify(p.title)}`,
+        })),
+        { name: 'All Datasets', link: '/datasets' },
+      ],
     },
+
     {
       name: 'Publication',
       child: [
