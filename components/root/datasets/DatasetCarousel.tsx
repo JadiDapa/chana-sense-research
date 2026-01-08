@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import {
   Carousel,
@@ -6,27 +6,22 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import { useRef } from "react";
-import DatasetCard from "./DatasetCard";
-
-export interface Researcher {
-  image: string;
-}
+} from '@/components/ui/carousel'
+import Autoplay from 'embla-carousel-autoplay'
+import { useRef } from 'react'
+import DatasetCard from './DatasetCard'
+import { Media } from '@/payload-types'
 
 export default function DatasetCarousel({
   items,
   autoplayDelay = 2000,
-  className = "",
+  className = '',
 }: {
-  items: Researcher[];
-  autoplayDelay?: number;
-  className?: string;
+  items: { image: number | Media; name: string; id?: string | null | undefined }[]
+  autoplayDelay?: number
+  className?: string
 }) {
-  const autoplay = useRef(
-    Autoplay({ delay: autoplayDelay, stopOnInteraction: true }),
-  );
+  const autoplay = useRef(Autoplay({ delay: autoplayDelay, stopOnInteraction: true }))
 
   return (
     <div className={className}>
@@ -37,9 +32,9 @@ export default function DatasetCarousel({
         className="w-full"
       >
         <CarouselContent>
-          {items.map((p, i) => (
+          {items.map((item, i) => (
             <CarouselItem key={i} className="flex basis-1/4 justify-center">
-              <DatasetCard {...p} />
+              <DatasetCard dataset={item} />
             </CarouselItem>
           ))}
         </CarouselContent>
@@ -48,5 +43,5 @@ export default function DatasetCarousel({
         <CarouselNext />
       </Carousel>
     </div>
-  );
+  )
 }

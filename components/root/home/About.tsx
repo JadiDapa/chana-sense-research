@@ -1,8 +1,8 @@
-import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import Image from 'next/image'
+import { ArrowRight } from 'lucide-react'
 
 export default async function AboutSection() {
-  const about = await getAboutContent(); // Server fetch
+  const about = await getAboutContent() // Server fetch
 
   return (
     <section className="w-full  px-6 py-20 lg:px-44">
@@ -16,12 +16,7 @@ export default async function AboutSection() {
         {/* LEFT IMAGE */}
         <div>
           <div className="relative size-80 overflow-hidden rounded-lg lg:size-[350px]">
-            <Image
-              src={about.image_1}
-              alt={about.title}
-              fill
-              className="rounded-lg object-cover"
-            />
+            <Image src={about.image_1} alt={about.title} fill className="rounded-lg object-cover" />
           </div>
         </div>
 
@@ -37,16 +32,10 @@ export default async function AboutSection() {
 
           {/* LINKS */}
           <div className="flex gap-10 font-medium text-primary">
-            <a
-              href={about.link_1.href}
-              className="flex items-center gap-2 hover:opacity-70"
-            >
+            <a href={about.link_1.href} className="flex items-center gap-2 hover:opacity-70">
               {about.link_1.label} <ArrowRight className="h-4 w-4" />
             </a>
-            <a
-              href={about.link_2.href}
-              className="flex items-center gap-2 hover:opacity-70"
-            >
+            <a href={about.link_2.href} className="flex items-center gap-2 hover:opacity-70">
               {about.link_2.label} <ArrowRight className="h-4 w-4" />
             </a>
           </div>
@@ -61,9 +50,7 @@ export default async function AboutSection() {
             {about.sdg_text_1}
           </p>
 
-          <p className="text-sm leading-relaxed text-gray-500">
-            {about.sdg_text_2}
-          </p>
+          <p className="text-sm leading-relaxed text-gray-500">{about.sdg_text_2}</p>
         </div>
 
         {/* RIGHT SDG CARDS */}
@@ -90,27 +77,25 @@ export default async function AboutSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 async function getAboutContent() {
   return {
-    title: "About Us",
+    title: 'About Us',
     image_1:
-      "https://isysrg.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Frpp4jatp%2Fproduction%2Facf175eacda29173c113713e0b4a511f2cfba7b7-1024x1024.jpg&w=1920&q=75",
+      'https://isysrg.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Frpp4jatp%2Fproduction%2Facf175eacda29173c113713e0b4a511f2cfba7b7-1024x1024.jpg&w=1920&q=75',
     description_1:
-      "The Chana Sense Research Center of Excellence primarily involves developing software, applications, and systems to support medical interpretation, with a focus on medical signal and image processing, medical pattern recognition, and medical record data mining techniques.",
+      'Channa Sense Research is a leading center of excellence initiated by Sriwijaya State Polytechnic, Indonesia. The center is dedicated to monitoring and controlling the Channa Sense environment for snakehead fish spawning in South Sumatra through interdisciplinary research collaboration and innovation.',
     description_2:
-      "The Chana Sense Research Center of Excellence creates intelligent systems across various fields, including computer systems, biomedicine, natural language processing, and others.",
-    link_1: { label: "Research Team", href: "/about/research-team" },
-    link_2: { label: "Infrastructure", href: "/about/infrastructure" },
+      'Channa Sense Research aims to develop AI-based technology solutions for more efficient snakehead fish development and cultivation, accessible to MSMEs, farmers, livestock breeders, and community groups through an integrated website platform.',
+    link_1: { label: 'Research Team', href: '/about/research-team' },
+    link_2: { label: 'Infrastructure', href: '/about/infrastructure' },
     sdg_text_1:
-      "The Chana Sense Research Center of Excellence supports SDG 3 (Good Health and Well-being) by developing AI-driven solutions better disease detection and healthcare delivery.",
+      'The Chana Sense Research Center of Excellence supports SDG 14 in marine ecosystems and develops AI-based solutions for the cultivation of Channa Sense and Channa Striata snakehead fish.',
     sdg_text_2:
-      "It also contributes to SDG 9 (Industry, Innovation andInfrastructure) by fostering technological innovation throughresearch in intelligent systems, promoting sustainable healthcareinfrastructure, and collaborating with industry to accelerate theadoption of cutting-edge technologies.",
-    sdg_image_1:
-      "https://isysrg.com/_next/image?url=%2Fassets%2Fimages%2FE_WEB_03.png&w=640&q=75",
-    sdg_image_2:
-      "https://isysrg.com/_next/image?url=%2Fassets%2Fimages%2FE_WEB_09.png&w=640&q=75",
-  };
+      'Furthermore, the center contributes to SDG 9 (Industry, Innovation, and Infrastructure) by driving technological innovation through intelligent systems research, promoting sustainable freshwater fish farming infrastructure, and collaborating with industry to accelerate the adoption of cutting-edge technologies.',
+    sdg_image_1: '/images/about-1.jpeg',
+    sdg_image_2: 'https://isysrg.com/_next/image?url=%2Fassets%2Fimages%2FE_WEB_09.png&w=640&q=75',
+  }
 }

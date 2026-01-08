@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import Image from "next/image";
+import Image from 'next/image'
 
 import {
   NavigationMenu,
@@ -9,92 +9,92 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import Link from "next/link";
-import { useIsMobile } from "@/hooks/use-mobile";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { slugify } from "payload/shared";
+} from '@/components/ui/navigation-menu'
+import Link from 'next/link'
+import { useIsMobile } from '@/hooks/use-mobile'
+import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import { slugify } from 'payload/shared'
 
 export default function NavbarContent({ products }: { products: any[] }) {
-  const isMobile = useIsMobile();
-  const pathname = usePathname();
-  const [isFixed, setIsFixed] = useState(false);
+  const isMobile = useIsMobile()
+  const pathname = usePathname()
+  const [isFixed, setIsFixed] = useState(false)
 
   const menu = [
     {
-      name: "About Us",
+      name: 'About Us',
       child: [
-        { name: "Research Team", link: "/about/research-team" },
-        { name: "Infrastructure", link: "/about/infrastructure" },
+        { name: 'Research Team', link: '/about/research-team' },
+        { name: 'Infrastructure', link: '/about/infrastructure' },
       ],
     },
     {
-      name: "Products",
+      name: 'Products',
       child: products.map((p) => ({
         name: p.title,
         link: `/products/${slugify(p.title)}`,
       })),
     },
     {
-      name: "Datasets",
+      name: 'Datasets',
       child: [
-        { name: "Signal ECG Dataset", link: "/datasets/signal-ecg-dataset" },
-        { name: "Pre Cancer Dataset", link: "/datasets/pre-cancer-dataset" },
+        { name: 'Signal ECG Dataset', link: '/datasets/signal-ecg-dataset' },
+        { name: 'Pre Cancer Dataset', link: '/datasets/pre-cancer-dataset' },
         {
-          name: "Infant/Fetal Dataset",
-          link: "/datasets/infant-fetal-dataset",
+          name: 'Infant/Fetal Dataset',
+          link: '/datasets/infant-fetal-dataset',
         },
       ],
     },
     {
-      name: "Publication",
+      name: 'Publication',
       child: [
-        { name: "International Journals", link: "/publications/journals" },
+        { name: 'International Journals', link: '/publications/journals' },
         {
-          name: "International Conference (Proceedings)",
-          link: "/publications/proceedings",
+          name: 'International Conference (Proceedings)',
+          link: '/publications/proceedings',
         },
         {
-          name: "International Property Rights (IPR)",
-          link: "/publications/ipr",
+          name: 'International Property Rights (IPR)',
+          link: '/publications/ipr',
         },
-        { name: "Books", link: "/publications/books" },
+        { name: 'Books', link: '/publications/books' },
       ],
     },
     {
-      name: "Communication",
+      name: 'Communication',
       child: [
-        { name: "Social Media", link: "/communications/social-media" },
-        { name: "Mass Media", link: "/communications/mass-media" },
-        { name: "Activities", link: "/communications/activities" },
+        { name: 'Social Media', link: '/communications/social-media' },
+        { name: 'Mass Media', link: '/communications/mass-media' },
+        { name: 'Activities', link: '/communications/activities' },
       ],
     },
-  ];
+  ]
 
   // Only apply scroll behavior on "/"
   useEffect(() => {
-    if (pathname !== "/") {
-      setIsFixed(true);
-      return;
+    if (pathname !== '/') {
+      setIsFixed(true)
+      return
     }
 
     const handleScroll = () => {
       if (window.scrollY > 20) {
-        setIsFixed(true);
+        setIsFixed(true)
       } else {
-        setIsFixed(false);
+        setIsFixed(false)
       }
-    };
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname]);
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [pathname])
 
   return (
     <NavigationMenu
       viewport={isMobile}
-      className={`z-50 max-w-none w-full border-b border-white/10 bg-black/60 backdrop-blur transition-all duration-300 ${isFixed ? "fixed left-0  top-0" : "absolute left-0 lg:top-20"}`}
+      className={`z-50 max-w-none w-full border-b shadow-md border-white/10 bg-white/60 backdrop-blur transition-all duration-300 ${isFixed ? 'fixed left-0  top-0' : 'absolute left-0 lg:top-20'}`}
     >
       <div className="flex items-center justify-between px-6 lg:px-44 w-full">
         {/* LEFT SIDE — Logos */}
@@ -128,17 +128,17 @@ export default function NavbarContent({ products }: { products: any[] }) {
               key={index}
               className="flex cursor-pointer items-center gap-2 border border-white/10 transition hover:bg-transparent"
             >
-              <NavigationMenuTrigger className="h-18 rounded-none bg-transparent px-6 text-base font-medium text-white hover:bg-transparent">
+              <NavigationMenuTrigger className="h-18 rounded-none bg-transparent px-6 text-base font-medium text-foreground hover:bg-transparent">
                 {item.name}
               </NavigationMenuTrigger>
               <NavigationMenuContent className="p-0">
-                <ul className="grid w-80 gap-2 bg-black/80 p-4 text-white">
+                <ul className="grid w-80 gap-2  p-4 text-foreground">
                   {item.child.map((child, childIndex) => (
                     <NavigationMenuLink
                       key={childIndex}
                       href={child.link}
                       asChild
-                      className="p-4 text-base"
+                      className="p-4 text-lg"
                     >
                       <Link href={child.link}>{child.name}</Link>
                     </NavigationMenuLink>
@@ -150,5 +150,5 @@ export default function NavbarContent({ products }: { products: any[] }) {
         </NavigationMenuList>
       </div>
     </NavigationMenu>
-  );
+  )
 }

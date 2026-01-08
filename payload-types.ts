@@ -73,6 +73,7 @@ export interface Config {
     infrastructures: Infrastructure;
     devices: Device;
     products: Product;
+    datasets: Dataset;
     journals: Journal;
     proceedings: Proceeding;
     copyrights: Copyright;
@@ -94,6 +95,7 @@ export interface Config {
     infrastructures: InfrastructuresSelect<false> | InfrastructuresSelect<true>;
     devices: DevicesSelect<false> | DevicesSelect<true>;
     products: ProductsSelect<false> | ProductsSelect<true>;
+    datasets: DatasetsSelect<false> | DatasetsSelect<true>;
     journals: JournalsSelect<false> | JournalsSelect<true>;
     proceedings: ProceedingsSelect<false> | ProceedingsSelect<true>;
     copyrights: CopyrightsSelect<false> | CopyrightsSelect<true>;
@@ -235,6 +237,49 @@ export interface Device {
 export interface Product {
   id: number;
   title: string;
+  slug: string;
+  /**
+   * Short marketing description shown in listings
+   */
+  description: string;
+  image: number | Media;
+  features: {
+    feature: string;
+    id?: string | null;
+  }[];
+  /**
+   * Full product content (supports formatting)
+   */
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "datasets".
+ */
+export interface Dataset {
+  id: number;
+  title: string;
+  dataset: {
+    image: number | Media;
+    name: string;
+    id?: string | null;
+  }[];
   slug: string;
   /**
    * Short marketing description shown in listings
@@ -434,6 +479,10 @@ export interface PayloadLockedDocument {
         value: number | Product;
       } | null)
     | ({
+        relationTo: 'datasets';
+        value: number | Dataset;
+      } | null)
+    | ({
         relationTo: 'journals';
         value: number | Journal;
       } | null)
@@ -595,6 +644,32 @@ export interface DevicesSelect<T extends boolean = true> {
  */
 export interface ProductsSelect<T extends boolean = true> {
   title?: T;
+  slug?: T;
+  description?: T;
+  image?: T;
+  features?:
+    | T
+    | {
+        feature?: T;
+        id?: T;
+      };
+  content?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "datasets_select".
+ */
+export interface DatasetsSelect<T extends boolean = true> {
+  title?: T;
+  dataset?:
+    | T
+    | {
+        image?: T;
+        name?: T;
+        id?: T;
+      };
   slug?: T;
   description?: T;
   image?: T;

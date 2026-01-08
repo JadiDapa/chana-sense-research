@@ -1,9 +1,9 @@
-import Image from "next/image";
-import { Instagram, Linkedin, Youtube } from "lucide-react";
-import { JSX } from "react";
+import Image from 'next/image'
+import { Instagram, Linkedin, Youtube } from 'lucide-react'
+import { JSX } from 'react'
 
 export default async function Footer() {
-  const contents = await getFooterContents();
+  const contents = await getFooterContents()
 
   return (
     <footer className="w-full bg-linear-to-b from-white to-amber-100 border-t border-amber-200 pt-16 pb-8 text-gray-700">
@@ -28,9 +28,7 @@ export default async function Footer() {
               />
             </div>
           </div>
-          <p className="text-sm leading-relaxed max-w-md">
-            {contents.description}
-          </p>
+          <p className="text-sm leading-relaxed max-w-md">{contents.description}</p>
         </div>
 
         {/* Address */}
@@ -67,12 +65,7 @@ export default async function Footer() {
         <div className="flex items-center gap-6 mt-4 md:mt-0">
           <div className="flex items-center gap-6 mt-4 md:mt-0">
             {contents.socials.map((social, i) => (
-              <a
-                key={i}
-                href={social.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a key={i} href={social.link} target="_blank" rel="noopener noreferrer">
                 {iconMap[social.name] ?? null}
               </a>
             ))}
@@ -80,55 +73,54 @@ export default async function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }
 
 async function getFooterContents() {
   return {
     description:
-      "The Chana Sense Research Center of Excellence aims to develop AI-based technological solutions for the early screening (detection) of non-communicable diseases that are accurate, efficient, ethical, and usable by non-specialist healthcare workers in primary care settings, through a mobile platform integrated with telemedicine.",
-    address:
-      "Jl. Srijaya Negara, Bukit Besar, Kec. Ilir Barat I, Kota Palembang, Sumatera Selatan 30128. Universitas Sriwijaya",
-    contact: "(+62) 81224147003",
-    open: "9 AM—4 PM every day",
-    copyright: "2025 Chana Sense Research Research Group",
+      'Chana Sense Research is a leading center of excellence initiated by Sriwijaya Polytechnic, Indonesia. This center is dedicated to advancing the field of freshwater fish cultivation, especially for snakehead fish (Channa Sense) and (Channa Striata) through interdisciplinary research collaboration and innovation.',
+    address: 'Politeknik Negeri Sriwijaya, Jl. Srijaya Negara, Bukit Besar, Palembang. 30139',
+    contact: '0711-353414',
+    open: '9 AM—4 PM every day',
+    copyright: '2025 Chana Sense Research Research Group',
     links: [
       {
-        name: "Research Team",
-        link: "/about/research-team",
+        name: 'Research Team',
+        link: '/about/research-team',
       },
       {
-        name: "Infrastructure",
-        link: "/about/infrastructure",
+        name: 'Infrastructure',
+        link: '/about/infrastructure',
       },
       {
-        name: "Products",
-        link: "/products/teleotiva",
+        name: 'Products',
+        link: '/products/teleotiva',
       },
       {
-        name: "International Journals",
-        link: "/publications/journals",
+        name: 'International Journals',
+        link: '/publications/journals',
       },
       {
-        name: "International Conferences (Proceedings)",
-        link: "/publications/proceedings",
+        name: 'International Conferences (Proceedings)',
+        link: '/publications/proceedings',
       },
     ],
     socials: [
       {
-        name: "Instagram",
-        link: "https://www.instagram.com/isys.research",
+        name: 'Instagram',
+        link: 'https://www.instagram.com/isys.research',
       },
       {
-        name: "Linkedin",
-        link: "https://id.linkedin.com/company/intelligent-system-research-group",
+        name: 'Linkedin',
+        link: 'https://id.linkedin.com/company/intelligent-system-research-group',
       },
       {
-        name: "Youtube",
-        link: "https://www.youtube.com/@intelligentsystemresearchg2577",
+        name: 'Youtube',
+        link: 'https://www.youtube.com/@intelligentsystemresearchg2577',
       },
     ],
-  };
+  }
 }
 
 // Map CMS name → Icon component
@@ -136,4 +128,4 @@ const iconMap: Record<string, JSX.Element> = {
   Instagram: <Instagram className="w-5 h-5 text-primary cursor-pointer" />,
   Linkedin: <Linkedin className="w-5 h-5 text-primary cursor-pointer" />,
   Youtube: <Youtube className="w-5 h-5 text-primary cursor-pointer" />,
-};
+}

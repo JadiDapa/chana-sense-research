@@ -19,6 +19,7 @@ import { SocialMedias } from './collections/SocialMedia'
 import { ResearchTeam } from './collections/ResearchTeam'
 import { Infrastructures } from './collections/Infrastructures'
 import { Devices } from './collections/Devices'
+import { Datasets } from './collections/Datasets'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -37,6 +38,7 @@ export default buildConfig({
     Infrastructures,
     Devices,
     Products,
+    Datasets,
     Journals,
     Proceedings,
     Copyrights,
