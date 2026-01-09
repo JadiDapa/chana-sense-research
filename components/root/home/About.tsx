@@ -12,11 +12,35 @@ export default async function AboutSection() {
       </h2>
 
       {/* TOP SECTION */}
-      <div className="mb-20 flex flex-col items-center gap-6 lg:flex-row lg:gap-20">
+      <div className="mb-20 flex flex-col  gap-6 lg:flex-row lg:gap-20">
         {/* LEFT IMAGE */}
-        <div>
-          <div className="relative size-80 overflow-hidden rounded-lg lg:size-[350px]">
-            <Image src={about.image_1} alt={about.title} fill className="rounded-lg object-cover" />
+        <div className="space-y-4">
+          <div className="flex lg:flex-row flex-col gap-4">
+            <div className="relative size-80 overflow-hidden rounded-lg lg:size-52">
+              <Image
+                src={about.image_1}
+                alt={about.title}
+                fill
+                className="rounded-lg object-contain"
+              />
+            </div>
+            <div className="relative size-80 overflow-hidden rounded-lg lg:size-52">
+              <Image
+                src={about.image_4}
+                alt={about.title}
+                fill
+                className="rounded-lg object-contain"
+              />
+            </div>
+          </div>
+
+          <div className="relative w-80 h-40 overflow-hidden rounded-lg lg:w-120 lg:h-52">
+            <Image
+              src={about.image_5}
+              alt={about.title}
+              fill
+              className="rounded-lg object-contain"
+            />
           </div>
         </div>
 
@@ -96,5 +120,7 @@ async function getAboutContent() {
       'Furthermore, the center contributes to SDG 9 (Industry, Innovation, and Infrastructure) by driving technological innovation through intelligent systems research, promoting sustainable freshwater fish farming infrastructure, and collaborating with industry to accelerate the adoption of cutting-edge technologies.',
     sdg_image_1: '/images/about-2.jpeg',
     sdg_image_2: 'https://isysrg.com/_next/image?url=%2Fassets%2Fimages%2FE_WEB_09.png&w=640&q=75',
+    image_4: '/images/about-2.png',
+    image_5: '/images/about-3.png',
   }
 }
