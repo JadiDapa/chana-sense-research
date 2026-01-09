@@ -13,8 +13,8 @@ export default async function DatasetDetailPage() {
   return (
     <>
       <LeftHeader section="DATASET" title={'ALL DATASET'} />
-      <div className="px-44 py-24">
-        <p>List of Datasets</p>
+      <div className="px-44 py-24 space-y-6">
+        <p className="text-xl text-primary mb-3">List of Datasets</p>
         {datasets.map((set) => (
           <DatasetList key={set.id} dataset={set} />
         ))}

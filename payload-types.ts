@@ -275,39 +275,37 @@ export interface Product {
 export interface Dataset {
   id: number;
   title: string;
-  dataset: {
-    image: number | Media;
-    name: string;
-    id?: string | null;
-  }[];
   slug: string;
   /**
    * Short marketing description shown in listings
    */
   description: string;
+  /**
+   * Dataset type (e.g. image, tabular, time-series)
+   */
+  type?: string | null;
+  /**
+   * Source or origin of the dataset
+   */
+  origin?: string | null;
+  /**
+   * Number of records (e.g. 10,000 rows)
+   */
+  records?: string | null;
+  /**
+   * Dataset license (e.g. CC BY 4.0, MIT)
+   */
+  license?: string | null;
+  /**
+   * Dataset URL
+   */
+  url?: string | null;
   image: number | Media;
-  features: {
-    feature: string;
+  dataset: {
+    image: number | Media;
+    name: string;
     id?: string | null;
   }[];
-  /**
-   * Full product content (supports formatting)
-   */
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
   updatedAt: string;
   createdAt: string;
 }
@@ -663,6 +661,14 @@ export interface ProductsSelect<T extends boolean = true> {
  */
 export interface DatasetsSelect<T extends boolean = true> {
   title?: T;
+  slug?: T;
+  description?: T;
+  type?: T;
+  origin?: T;
+  records?: T;
+  license?: T;
+  url?: T;
+  image?: T;
   dataset?:
     | T
     | {
@@ -670,16 +676,6 @@ export interface DatasetsSelect<T extends boolean = true> {
         name?: T;
         id?: T;
       };
-  slug?: T;
-  description?: T;
-  image?: T;
-  features?:
-    | T
-    | {
-        feature?: T;
-        id?: T;
-      };
-  content?: T;
   updatedAt?: T;
   createdAt?: T;
 }

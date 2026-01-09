@@ -1,14 +1,14 @@
-import { getPayload } from "payload";
-import config from "@/payload.config";
+import { getPayload } from 'payload'
+import config from '@/payload.config'
 
 export default async function JournalList() {
-  const payload = await getPayload({ config });
+  const payload = await getPayload({ config })
 
   const { docs: journals } = await payload.find({
-    collection: "journals", // make sure slug = "journals"
-    sort: "-year",
+    collection: 'journals',
+    sort: '-year',
     limit: 50,
-  });
+  })
 
   return (
     <section className="px-44 py-24">
@@ -35,7 +35,7 @@ export default async function JournalList() {
         ))}
       </div>
     </section>
-  );
+  )
 }
 
 // const journals = [

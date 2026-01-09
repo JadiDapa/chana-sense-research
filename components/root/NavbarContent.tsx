@@ -38,10 +38,13 @@ export default function NavbarContent({
     },
     {
       name: 'Products',
-      child: products.map((p) => ({
-        name: p.title,
-        link: `/products/${slugify(p.title)}`,
-      })),
+      child: [
+        ...products.map((p) => ({
+          name: p.title,
+          link: `/products/${slugify(p.title)}`,
+        })),
+        { name: 'All Products', link: '/products' },
+      ],
     },
     {
       name: 'Datasets',

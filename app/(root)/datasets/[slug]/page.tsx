@@ -3,6 +3,7 @@ import { getPayload } from 'payload'
 import LeftHeader from '@/components/root/LeftHeader'
 import DatasetCarousel from '@/components/root/datasets/DatasetCarousel'
 import PreviewLink from '@/components/root/datasets/PreviewLink'
+import DatasetDescription from '@/components/root/datasets/DatasetDescription'
 
 export default async function DatasetDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
@@ -25,14 +26,14 @@ export default async function DatasetDetailPage({ params }: { params: Promise<{ 
       <div className="px-44 py-24">
         <DatasetCarousel items={dataset.dataset} />
       </div>
-      {/* <DatasetDescription
+      <DatasetDescription
         description={dataset.description}
         origin={dataset.origin}
         type={dataset.type}
         records={dataset.records}
         license={dataset.license}
-      /> */}
-      <PreviewLink url="https://isysrg.com/datasets/infant-fetal-dataset" />
+      />
+      <PreviewLink url={dataset.url} />
     </>
   )
 }
