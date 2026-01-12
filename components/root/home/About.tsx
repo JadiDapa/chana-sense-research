@@ -7,6 +7,14 @@ export default async function AboutSection() {
   return (
     <section className="w-full  px-6 py-20 lg:px-44">
       {/* TITLE */}
+      <div className="flex justify-center items-center gap-3">
+        <div className="relative w-20 h-12 overflow-hidden lg:w-20  lg:h-12">
+          <Image src={about.image_5} alt={about.title} fill className="object-contain" />
+        </div>
+        <div className="relative size-12 overflow-hidden  lg:size-12 ">
+          <Image src={about.image_4} alt={about.title} fill className="rounded-lg object-contain" />
+        </div>
+      </div>
       <h2 className="mb-6 text-center text-3xl font-bold text-primary lg:mb-12 lg:text-4xl">
         {about.title}
       </h2>
@@ -14,38 +22,15 @@ export default async function AboutSection() {
       {/* TOP SECTION */}
       <div className="mb-20 flex flex-col  gap-6 lg:flex-row lg:gap-20">
         {/* LEFT IMAGE */}
-        <div className="space-y-4">
-          <div className="flex lg:flex-row flex-col gap-4">
-            <div className="relative size-80 overflow-hidden rounded-lg lg:size-52">
-              <Image
-                src={about.image_1}
-                alt={about.title}
-                fill
-                className="rounded-lg object-contain"
-              />
-            </div>
-            <div className="relative size-80 overflow-hidden rounded-lg lg:size-52">
-              <Image
-                src={about.image_4}
-                alt={about.title}
-                fill
-                className="rounded-lg object-contain"
-              />
-            </div>
-          </div>
-
-          <div className="relative w-80 h-40 overflow-hidden rounded-lg lg:w-120 lg:h-52">
-            <Image
-              src={about.image_5}
-              alt={about.title}
-              fill
-              className="rounded-lg object-contain"
-            />
-          </div>
+        <div className="relative order-2 lg:order-1 size-40 mx-auto lg:mx-0 overflow-hidden rounded-lg lg:size-52">
+          <Image src={about.image_1} alt={about.title} fill className="rounded-lg object-contain" />
         </div>
 
         {/* RIGHT TEXT */}
-        <div>
+        <div
+          className="order-1 lg:order-2
+        "
+        >
           <p className="mb-6 text-sm leading-relaxed text-gray-700 lg:text-xl">
             {about.description_1}
           </p>
