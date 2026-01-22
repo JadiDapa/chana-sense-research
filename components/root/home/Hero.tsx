@@ -9,13 +9,7 @@ export default async function HeroSection() {
       {/* Dark Overlay */}
       <div className="absolute inset-0 z-10 bg-linear-to-br from-primary to-amber-200"></div>
 
-      {/* Background Image */}
-      {/* <div className="absolute inset-0">
-        <Image src={hero.image} alt={hero.title} fill className="object-cover object-center" />
-      </div> */}
-
-      {/* Content */}
-      <div className="relative z-20 mx-auto space-y-6 px-6 py-24  lg:px-44 lg:py-44 lg:pt-64">
+      <div className="relative z-20 mx-auto space-y-6 px-6 pb-12 pt-44  lg:px-44 lg:py-44 lg:pt-64">
         <h1 className="text-5xl font-medium md:text-8xl text-white">
           {hero.title} <span className="">.</span>
         </h1>

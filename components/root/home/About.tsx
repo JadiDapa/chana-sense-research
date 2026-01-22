@@ -22,15 +22,17 @@ export default async function AboutSection() {
       {/* TOP SECTION */}
       <div className="mb-20 flex flex-col  gap-6 lg:flex-row lg:gap-20">
         {/* LEFT IMAGE */}
-        <div className="relative order-2 lg:order-1 size-40 mx-auto lg:mx-0 overflow-hidden rounded-lg lg:size-52">
-          <Image src={about.image_1} alt={about.title} fill className="rounded-lg object-contain" />
+        <div className="relative order-2  lg:order-1 size-52 mx-auto lg:mx-0 overflow-hidden lg:size-72 rounded-lg ">
+          <Image
+            src={about.image_1}
+            alt={about.title}
+            fill
+            className="rounded-lg object-contain object-center"
+          />
         </div>
 
         {/* RIGHT TEXT */}
-        <div
-          className="order-1 lg:order-2
-        "
-        >
+        <div className="order-1 lg:order-2 flex-1">
           <p className="mb-6 text-sm leading-relaxed text-gray-700 lg:text-xl">
             {about.description_1}
           </p>
