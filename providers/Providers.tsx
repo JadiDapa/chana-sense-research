@@ -1,25 +1,20 @@
-"use client";
+'use client'
 
-import { ReactNode, useState } from "react";
-import { ClerkProvider } from "@clerk/nextjs";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import NextNProgress from "nextjs-progressbar";
-
-import { AccountProvider } from "./AccountProvider";
+import { ReactNode, useState } from 'react'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import NextNProgress from 'nextjs-progressbar'
 
 interface Props {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export default function Providers({ children }: Props) {
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(() => new QueryClient())
 
   return (
-    <ClerkProvider>
-      <QueryClientProvider client={queryClient}>
-        <AccountProvider>{children}</AccountProvider>
-        <NextNProgress />
-      </QueryClientProvider>
-    </ClerkProvider>
-  );
+    <QueryClientProvider client={queryClient}>
+      {children}
+      <NextNProgress />
+    </QueryClientProvider>
+  )
 }
